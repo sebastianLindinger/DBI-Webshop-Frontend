@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
+  userID = localStorage.getItem('userID');
   constructor() { }
 
   ngOnInit(): void {
