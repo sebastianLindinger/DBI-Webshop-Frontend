@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
 */
     console.log('button Submit clicked')
     this.authService.login(f.value);
+    
+    console.log(localStorage.getItem('userID'));
   }
 
 }
