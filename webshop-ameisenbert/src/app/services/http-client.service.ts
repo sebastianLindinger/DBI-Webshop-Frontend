@@ -7,9 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class HttpClientService {
   authUrl = 'http://localhost:8080/ameisenbert.shop/';
   constructor(private http: HttpClient) { }
-  products() {
-    this.http.get(this.authUrl + 'products').subscribe((data) => {
-      console.log(data);
-    })
+  products(){
+    return this.http.get(this.authUrl + 'products');
   }
 }
