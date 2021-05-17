@@ -11,5 +11,9 @@ export class AuthService {
 
   login(model: any) {
     console.log(model);
+    this.http.post(this.authUrl + "users/login", model).subscribe((data) => {
+      console.log(data);
+      localStorage.setItem('userID', data as string);
+    })
   }
 }
