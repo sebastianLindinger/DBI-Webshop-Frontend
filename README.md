@@ -5,8 +5,8 @@ Johannes Huemer - Jhuemer17
 Sebastian Lindinger - sebastianLindinger
 Maximilian Lehner - mlehner17
 
-#webshop
-Backend
+## Frontend
+webshop-ameisenbert
 
-#webshop-ameisenbert
-Frontend
+## Backend
+webshop
