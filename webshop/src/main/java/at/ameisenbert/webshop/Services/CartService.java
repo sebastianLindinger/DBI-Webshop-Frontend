@@ -77,4 +77,14 @@ public class CartService {
         cartRepository.delete(cart);
         return cartToCartResource(cart);
     }
+
+    public CartResource getCartResourceFromUser(int id) {
+        Optional<CartResource> optionalCartResource =  cartRepository.findAll().stream()
+                .filter(cart -> cart.getUserID() == id)
+                .map(cart -> new CartResource(cart.getCartID(), cart.getUserID(), cart.getProductIDs()))
+                .findFirst();
+
+        if(optionalCartResource.isPresent()) return optionalCartResource.get();
+        else throw new NotFoundException("Cart with the id " + id + " was not found.");
+    }
 }

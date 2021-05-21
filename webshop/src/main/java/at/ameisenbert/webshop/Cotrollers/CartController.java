@@ -29,6 +29,10 @@ public class CartController {
     @GetMapping(value = "/{id}")
     public CartResource getCart(@PathVariable int id) {
         return cartService.getCartResourceById(id);
+
+    }@GetMapping(value = "/byUser/{id}")
+    public CartResource getCartByUser(@PathVariable int id) {
+        return cartService.getCartResourceFromUser(id);
     }
 
     @PostMapping
