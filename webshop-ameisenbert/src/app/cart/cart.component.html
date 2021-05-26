@@ -1,5 +1,15 @@
-<p>cart from user: {{(cart | async)?.userID}} works!</p>
+<br>
+<h1 *ngIf="!cart; else userLoggedIn">no cart</h1>
 
-<div *ngFor="let product of (products | async)">
-    {{product.productID}}
-</div>
+<ng-template #userLoggedIn>
+    <div class="container">
+        <div class="row">
+            <h1>cart from user: {{cart?.userID}} works!</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-3" *ngFor="let product of products">
+                <app-product [product]=product></app-product>
+            </div>
+        </div>
+    </div>
+</ng-template>
