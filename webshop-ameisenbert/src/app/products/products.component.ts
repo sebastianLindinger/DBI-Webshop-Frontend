@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientService } from 'src/app/services/http-client.service';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { Product } from '../product/product'
 
 @Component({

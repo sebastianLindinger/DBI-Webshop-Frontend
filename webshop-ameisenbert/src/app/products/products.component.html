@@ -1,8 +1,8 @@
-<div class="container">
-    <br>
-    <div class="row">
-        <div class="col-md-3" *ngFor="let product of products">
+<div class="grid-container">
+    <h1 class="mat-h1">Products</h1>
+    <mat-grid-list cols="4">
+        <mat-grid-tile *ngFor="let product of products">
             <app-product [product]=product [canAddToCart]=true></app-product>
-        </div>
-    </div>
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>

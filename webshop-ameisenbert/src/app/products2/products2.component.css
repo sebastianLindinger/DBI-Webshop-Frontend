@@ -1,7 +1,5 @@
-
 .grid-container {
   margin: 20px;
-  padding:20px;
 }
 
 .dashboard-card {
@@ -19,16 +17,5 @@
 }
 
 .dashboard-card-content {
-  text-align: left;
-  height: 100%;
-}
-
-.card-image{
-  cursor: pointer;
-  height: 50%;
-}
-
-.card-title{
-  padding-top: 10px;
-  border-radius: 6px;
+  text-align: center;
 }
