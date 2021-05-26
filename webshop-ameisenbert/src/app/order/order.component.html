@@ -1,0 +1,9 @@
+<div class="row">
+    <h3>Bestellung: {{order?.orderID}}</h3>
+    <h5>Benutzer: {{order?.userID}}</h5>
+    <h5>{{order?.orderDate}}</h5>
+    <div class="col-md-3" *ngFor="let product of products">
+        <app-product [product]=product></app-product>
+    </div>
+    <hr>
+</div>
