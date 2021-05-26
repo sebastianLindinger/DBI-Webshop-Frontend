@@ -1,16 +1,11 @@
 package at.ameisenbert.webshop.Cotrollers;
 
-import at.ameisenbert.webshop.Entities.*;
 import at.ameisenbert.webshop.Entities.DTO.OrderDTO;
 import at.ameisenbert.webshop.Entities.Resource.OrderResource;
 import at.ameisenbert.webshop.Services.OrderService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin
