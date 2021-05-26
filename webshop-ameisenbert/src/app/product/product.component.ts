@@ -11,6 +11,10 @@ export class ProductComponent implements OnInit {
 
   @Input()
   product: Product | undefined;
+  @Input()
+  canAddToCart: boolean = false;
+  @Input()
+  canRemoveFromCart: boolean = false;
 
   ngOnInit(): void {
   }

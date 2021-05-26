@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,9 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   authUrl = 'http://localhost:8080/ameisenbert.shop/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private apiService: ApiService) { }
 
   login(model: any) {
-    console.log(model);
-    this.http.post(this.authUrl + "users/login", model).subscribe((data) => {
-      console.log(data);
-      localStorage.setItem('userID', data as string);
-    })
+    return this.apiService.post('users/login', model);
   }
 }

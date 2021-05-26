@@ -1,7 +1,8 @@
 <div class="container">
+    <br>
     <div class="row">
         <div class="col-md-3" *ngFor="let product of products">
-            <app-product [product]=product></app-product>
+            <app-product [product]=product [canAddToCart]=true></app-product>
         </div>
     </div>
 </div>

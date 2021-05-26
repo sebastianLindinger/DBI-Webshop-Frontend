@@ -3,6 +3,7 @@
 .product-box {
   padding: 0;
   border: 1px solid #e7eaec;
+  background-color: black;
 }
 
 .product-imitation {
@@ -122,7 +123,8 @@ table.shoping-cart-table tr td:last-child {
   min-height: 48px;
 }
 .ibox-content {
-  background-color: #ffffff;
+  background-color: #f2f2f2;
+  border-radius: 20px;
   color: inherit;
   padding: 15px 20px 20px 20px;
   border-color: #fff;

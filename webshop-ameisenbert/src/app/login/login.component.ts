@@ -13,28 +13,29 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
+  message: string = '';
+  userIsLoggedIn: boolean = localStorage.getItem('userID') != '-1';
+
   ngOnInit() { }
 
   onSubmit(f: NgForm) {
-    /*this.alertService.info('Checking User Info');
-    this.progressBar.startLoading();
-    const loginObserver = {
-      next: x => {
-        this.progressBar.setSuccess();
-        console.log('User logged in');
-        this.alertService.success('Logged In');
-        this.progressBar.completeLoading();
-      },
-      error: err => {
-        this.progressBar.setError();
-        console.log(err);
-        this.alertService.danger('Unable to Login');
-        this.progressBar.completeLoading();
-      }
-    };
-    this.authService.login(f.value).subscribe(loginObserver);
-*/
     console.log('button Submit clicked')
-    this.authService.login(f.value);
+    this.authService.login(f.value).subscribe(res => {
+      var userID = res as string;
+      localStorage.setItem('userID', userID);
+      if (userID == '-1') {
+        this.message = 'Login failed!';
+      }
+      else {
+        this.userIsLoggedIn = true;
+        this.message = 'Login successful!';
+      }
+    });
+  }
+
+  logout() {
+    this.userIsLoggedIn = false;
+    localStorage.setItem('userID', '-1');
+    this.message = 'Logout successful!';
   }
 }

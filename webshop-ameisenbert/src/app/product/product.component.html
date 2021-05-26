@@ -10,9 +10,13 @@
             </span>
             <a href="#" class="product-name">{{product?.name}}</a>
             <small class="text-muted">{{product?.weight}} kg</small>
-            <br>
-            <div class="m-t text-righ">
+            <hr>
+            <div class="m-t text-righ" *ngIf="canAddToCart">
                 <a href="#" class="btn btn-xs btn-outline btn-primary">Add to cart <i
+                        class="fa fa-long-arrow-right"></i> </a>
+            </div>
+            <div class="m-t text-righ" *ngIf="canRemoveFromCart">
+                <a href="#" class="btn btn-xs btn-outline btn-danger">Remove From Cart<i
                         class="fa fa-long-arrow-right"></i> </a>
             </div>
         </div>
