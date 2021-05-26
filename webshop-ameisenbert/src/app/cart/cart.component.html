@@ -1,2 +1,5 @@
-<p>cart from user: {{userID}} works!</p>
+<p>cart from user: {{(cart | async)?.userID}} works!</p>
 
+<div *ngFor="let product of (products | async)">
+    {{product.productID}}
+</div>

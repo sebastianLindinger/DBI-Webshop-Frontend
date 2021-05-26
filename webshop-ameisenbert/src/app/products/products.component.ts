@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { HttpClientService } from 'src/app/services/http-client.service';
-import { product } from '../product/product';
 
 @Component({
   selector: 'app-products',
