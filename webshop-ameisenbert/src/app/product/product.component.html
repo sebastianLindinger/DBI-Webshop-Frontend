@@ -35,21 +35,22 @@
     </mat-card-content>
 </mat-card>-->
 
-<mat-card class="dashboard-card" flex>
+<mat-card class="dashboard-card">
     <mat-card-header>
-      <mat-card-title>
-        {{product?.name}}
-        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" xPosition="before">
-          <button mat-menu-item>Expand</button>
-          <button mat-menu-item>Remove</button>
-        </mat-menu>
-      </mat-card-title>
+        <mat-card-title>
+            {{product?.name}}
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+            </mat-menu>
+        </mat-card-title>
     </mat-card-header>
+    <!--<img mat-card-image src="{{product?.image}}">-->
     <mat-card-content class="dashboard-card-content">
-        <img class="card-image" src="{{product?.image}}">
-        <div>Card Content Lore</div>
+        <div>{{product?.price}} €</div>
+        <div>{{product?.weight}} kg</div>
     </mat-card-content>
-  </mat-card>
+</mat-card>
