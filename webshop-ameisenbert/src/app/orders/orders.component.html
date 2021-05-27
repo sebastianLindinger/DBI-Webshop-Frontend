@@ -1,5 +1,10 @@
-<div class="container">
-        <div *ngFor="let order of orders">
-            <app-order [order]=order></app-order>
-        </div>
-</div>
+<article>
+    <mat-drawer-container class="example-container">
+        <mat-drawer-content>
+            <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column"
+                fxLayoutAlign="space-evenly left">
+                <app-order *ngFor="let order of orders" [order]=order></app-order>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</article>

@@ -1,8 +1,12 @@
-<div class="container">
-    <br>
-    <div class="row">
-        <div class="col-md-3" *ngFor="let product of products">
-            <app-product [product]=product [canAddToCart]=true></app-product>
-        </div>
-    </div>
-</div>
+<article>
+  
+  <mat-drawer-container class="example-container">
+    <mat-drawer-content>
+      <br>
+      <h1 style="padding-left: 30px;">Products</h1>
+      <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
+        <app-product *ngFor="let product of products"  [product]=product [canAddToCart]=true></app-product>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</article>
