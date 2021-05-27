@@ -1,8 +1,0 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="3" class="grid-list" rowHeight="350px">
-    <mat-grid-tile *ngFor="let product of showProducts | async" [colspan]="product.cols" [rowspan]="product.rows" class="grid-tile">
-      <app-product [product]=product [canAddToCart]=true></app-product>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>

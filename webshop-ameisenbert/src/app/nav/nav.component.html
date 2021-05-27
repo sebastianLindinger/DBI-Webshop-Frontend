@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="deviceXs ? 'dialog' : 'navigation'"
+    [mode]="deviceXs ? 'over' : 'side'" [opened]="!deviceXs">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       
@@ -8,14 +8,13 @@
       <a mat-list-item routerLink="/orders" routerLinkActive="active">Orders</a>
       <a mat-list-item routerLink="/cart" routerLinkActive="active">Cart</a>
       <a mat-list-item routerLink="/login" routerLinkActive="active">Login</a>
-      <a mat-list-item routerLink="/register" routerLinkActive="active">Register</a>
-      <a mat-list-item routerLink="/prorducts2" routerLinkActive="active">abc</a>
+      <a mat-list-item routerLink="/register" routerLinkActive="active" >Register</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        *ngIf="deviceXs">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>webshop-ameisenbert</span>

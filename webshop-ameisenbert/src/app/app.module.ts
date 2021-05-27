@@ -13,8 +13,9 @@ import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,8 +24,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule} from '@angular/material/card';
-import { Products2Component } from './products2/products2.component';
 import { MatMenuModule } from '@angular/material/menu';
+
 
 
 @NgModule({
@@ -39,7 +40,6 @@ import { MatMenuModule } from '@angular/material/menu';
     ProductComponent,
     OrderComponent,
     NavComponent,
-    Products2Component
   ],
   imports: [
     BrowserModule,
@@ -55,7 +55,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

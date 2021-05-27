@@ -1,56 +1,20 @@
-<!---<div class="ibox">
-    <div class="ibox-content product-box">
-
-        <div class="product-imitation">
-            <img src="{{product?.image}}">
-        </div>
-        <div class="product-desc">
-            <span class="product-price">
-                {{product?.price}} €
-            </span>
-            <a href="#" class="product-name">{{product?.name}}</a>
-            <small class="text-muted">{{product?.weight}} kg</small>
-            <hr>
-            <div class="m-t text-righ" *ngIf="canAddToCart">
-                <a href="#" class="btn btn-xs btn-outline btn-primary">Add to cart <i
-                        class="fa fa-long-arrow-right"></i> </a>
-            </div>
-            <div class="m-t text-righ" *ngIf="canRemoveFromCart">
-                <a href="#" class="btn btn-xs btn-outline btn-danger">Remove From Cart<i
-                        class="fa fa-long-arrow-right"></i> </a>
-            </div>
-        </div>
-    </div>
-</div>-
-
-<mat-card class="dashboard-card">
+<mat-card class="example-card">
     <mat-card-header>
-        <mat-card-title>
-            {{product?.name}}
-        </mat-card-title>
+      <div mat-card-avatar class="example-header-image" fxLayoutAlign.xs="center center" style="background-image: url('{{product?.image}}')"></div>
+      <mat-card-title>{{product?.name}}</mat-card-title>
+      <mat-card-subtitle>geiler {{product?.name}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content class="dashboard-card-content">
-        <img class="card-image" src="{{product?.image}}">
-        <div>{{product?.weight}} kg</div>
+    <img mat-card-image src="{{product?.image}}"
+      alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+          Zeas. Dies ist die Beschreibung für das Produkt: {{product?.name}}. <br>
+          Ein {{product?.name}} wiegt {{product?.weight}} geile Kilogramm. <br>
+          Der Preis beläuft sich auf {{product?.price}} €
+      </p>
     </mat-card-content>
-</mat-card>-->
-
-<mat-card class="dashboard-card">
-    <mat-card-header>
-        <mat-card-title>
-            {{product?.name}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-            </mat-menu>
-        </mat-card-title>
-    </mat-card-header>
-    <!--<img mat-card-image src="{{product?.image}}">-->
-    <mat-card-content class="dashboard-card-content">
-        <div>{{product?.price}} €</div>
-        <div>{{product?.weight}} kg</div>
-    </mat-card-content>
-</mat-card>
+    <mat-card-actions>
+      <button *ngIf="canAddToCart" mat-raised-button color="primary">In den Warenkorb legen</button>
+      <button *ngIf="canRemoveFromCart" mat-raised-button color="warn">Aus dem Warenkorb entfernen</button>
+    </mat-card-actions>
+  </mat-card>

@@ -1,9 +1,16 @@
-<div class="row">
-    <h3>Bestellung: {{order?.orderID}}</h3>
-    <h5>Benutzer: {{order?.userID}}</h5>
-    <h5>{{order?.orderDate}}</h5>
-    <div class="col-md-3" *ngFor="let product of products">
-        <app-product [product]=product></app-product>
-    </div>
+<article>
+    <br>
+    <h1>Bestellung: {{order?.orderID}}</h1>
+    <h3>Benutzer: {{order?.userID}}</h3>
+    <h3>{{order?.orderDate}}</h3>
+    <mat-drawer-container class="example-container">
+        <mat-drawer-content>
+            <div class="example-sidenav-content order-example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column"
+                fxLayoutAlign="space-evenly center"
+                >
+                <app-product *ngFor="let product of products" [product]=product></app-product>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
     <hr>
-</div>
+</article>

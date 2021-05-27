@@ -1,15 +1,20 @@
 <br>
-<h1 *ngIf="!cart; else userLoggedIn">no cart</h1>
+<h1 *ngIf="!cart; else userLoggedIn">Bitte loggen Sie sichen ein um Ihren Einkaufswagen zu sehen.</h1>
 
 <ng-template #userLoggedIn>
-    <div class="container">
-        <div class="row">
-            <h1>cart from user: {{cart?.userID}} works!</h1>
-        </div>
-        <div class="row">
-            <div class="col-md-3" *ngFor="let product of products">
-                <app-product [product]=product [canRemoveFromCart]=true></app-product>
-            </div>
-        </div>
-    </div>
+
+    <article>
+        <br>
+        <h1>Warenkorb von Benutzer mit der ID {{cart?.userID}}!</h1>
+        <mat-drawer-container class="example-container">
+            <mat-drawer-content>
+                <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column"
+                    fxLayoutAlign="space-evenly center"
+                    style="flex-flow: row wrap; box-sizing: border-box; display: flex; place-content: left space-evenly; align-items: left;">
+                    <app-product *ngFor="let product of products" [product]=product [canRemoveFromCart]=true></app-product>
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+        <hr>
+    </article>
 </ng-template>

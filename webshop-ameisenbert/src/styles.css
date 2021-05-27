@@ -2,3 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.example-sidenav-content {
+    flex-flow: row wrap;
+    box-sizing: border-box; 
+    display: flex;
+    place-content: left space-evenly; 
+    align-items: left;
+    margin-left: 30px;
+}
+
+.order-example-sidenav-content {
+    margin-left: 0;
+}
