@@ -1,11 +1,15 @@
 <article>
-  
+
   <mat-drawer-container class="example-container">
     <mat-drawer-content>
       <br>
       <h1 style="padding-left: 30px;">Products</h1>
+      <button (click)="openCreateProductDialog()">
+        <mat-icon svgIcon="add-icon" aria-hidden="false" aria-label="Example add svg icon"></mat-icon>
+      </button>
+
       <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
-        <app-product *ngFor="let product of products"  [product]=product [canAddToCart]=true></app-product>
+        <app-product *ngFor="let product of products" [product]=product [canAddToCart]=true></app-product>
       </div>
     </mat-drawer-content>
   </mat-drawer-container>
