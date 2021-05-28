@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
-
-
-
 
 @Component({
   selector: 'app-create-product',
@@ -21,15 +17,14 @@ export class CreateProductComponent implements OnInit {
 
   weightFormControl = new FormControl('', [
     Validators.required,
-  ]);
-
-  //matcher = new MyErrorStateMatcher();
+  ]);  
 
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm) { }
-
+  onSubmit(f: NgForm) { 
+    console.log('create product clicked')
+  }
 
   constructor() { }
 

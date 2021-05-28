@@ -30,3 +30,10 @@ button {
 h1 {
   display: inline;
 }
+
+a {
+  display: block;
+  padding-left: 30px;
+}
+
+
