@@ -1,12 +1,19 @@
 <article>
-  
   <mat-drawer-container class="example-container">
     <mat-drawer-content>
       <br>
       <h1 style="padding-left: 30px;">Products</h1>
+      <br>
+
       <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
-        <app-product *ngFor="let product of products"  [product]=product [canAddToCart]=true></app-product>
+        <app-product *ngFor="let product of products" [product]=product [canAddToCart]=true></app-product>
       </div>
+
+      <br>
+      <a routerLink="/create-product">
+        <button class="create-product-button"mat-raised-button color="accent">Produkt erstellen</button>
+      </a>
+      <br>
     </mat-drawer-content>
   </mat-drawer-container>
 </article>
