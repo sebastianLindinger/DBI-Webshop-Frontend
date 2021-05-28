@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-product',
@@ -7,7 +7,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
   styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit {
-    textFormControl = new FormControl('', [
+  textFormControl = new FormControl('', [
     Validators.required,
   ]);
 
@@ -17,12 +17,12 @@ export class CreateProductComponent implements OnInit {
 
   weightFormControl = new FormControl('', [
     Validators.required,
-  ]);  
+  ]);
 
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm) { 
+  onSubmit(f: NgForm) {
     console.log('create product clicked')
   }
 

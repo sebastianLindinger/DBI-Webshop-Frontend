@@ -1,22 +1,30 @@
-<div class="row">
-    <div class="col-md-6 offset-md-3 mt-4">
-        <h3>Login</h3>
-        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-            <div class="form-group">
-                <label for="loginUsername">Username</label>
-                <input type="text" name="userName" ngModel required #username="ngModel" class="form-control"
-                    id="loginUsername" placeholder="Enter username">
-            </div>
-            <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" name="password" ngModel required #password="ngModel" class="form-control"
-                    id="loginPassword" placeholder="Password">
-            </div>
-            <br>
-            <div *ngIf="message" class="alert alert-info">{{message}}</div>
-            <button type="submit" [disabled]="f.invalid" class="btn btn-primary">Login</button>
-
-            <button *ngIf="userIsLoggedIn" (click)="logout()" class="btn btn-basic">Logout</button>
-        </form>
-    </div>
+<div *ngIf="userIsLoggedIn; else userLoggedIn" class="logout-section">
+    <button (click)="logout()" mat-raised-button color="primary">Logout!</button>
 </div>
+
+<ng-template #userLoggedIn>
+
+    <form mat-form #f="ngForm" class="example-form" (ngSubmit)="onSubmit()">
+        <h1>Login</h1>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Benutzername</mat-label>
+            <input type="text" matInput [formControl]="textFormControl" [(ngModel)]="username" placeholder="PGP420"
+                ngModel required name="username">
+            <mat-error *ngIf="textFormControl.hasError('required')">
+                Benutzername ist <strong>erforderlich</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Passwort</mat-label>
+            <input type="password" matInput [formControl]="passwordFormControl" ngModel required name="password"
+                [(ngModel)]="password">
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Passwort ist <strong>erforderlich</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Login!</button>
+    </form>
+</ng-template>
