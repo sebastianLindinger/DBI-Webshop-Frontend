@@ -10,3 +10,7 @@ webshop-ameisenbert
 
 ## Backend
 webshop
+
+## Dokumente
+Bericht: Angular-Bericht.pdf
+Präsentation: Angular.pptx
