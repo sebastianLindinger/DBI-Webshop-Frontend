@@ -33,5 +33,5 @@
         <input type="text" matInput placeholder="assets/images/delfin.jpg" required ngModel name="image">
       </mat-form-field >
 
-      <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Produkt erstellen!</button>
+      <button (click)='createProduct("")' mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Produkt erstellen!</button>
   </form>

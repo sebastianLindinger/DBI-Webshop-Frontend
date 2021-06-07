@@ -34,6 +34,7 @@ export class ApiService {
   }
 
   delete(url: string){
+    console.log('delete method '+`${this.ROOT_URL}/${url}`);
     return this.http.delete(`${this.ROOT_URL}/${url}`);
   }
 }

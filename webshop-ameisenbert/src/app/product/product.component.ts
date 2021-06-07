@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from './product';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-product',
@@ -7,7 +8,7 @@ import { Product } from './product';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  constructor() { }
+  
 
   @Input()
   product: Product | undefined;
@@ -18,5 +19,13 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  deleteProduct(id: string) {
+      console.log(id);
+      console.log('Data is deleted - Result - ', this.apiService.delete(id));
+    }
+  
+
+  constructor(private apiService: ApiService) { }
 
 }
