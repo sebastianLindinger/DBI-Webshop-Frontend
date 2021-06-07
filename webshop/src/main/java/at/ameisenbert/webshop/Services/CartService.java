@@ -2,6 +2,7 @@ package at.ameisenbert.webshop.Services;
 
 import at.ameisenbert.webshop.Entities.DB.CartDB;
 import at.ameisenbert.webshop.Entities.DTO.CartDTO;
+import at.ameisenbert.webshop.Entities.DTO.ProductDTO;
 import at.ameisenbert.webshop.Entities.Resource.CartResource;
 import at.ameisenbert.webshop.Exceptions.BadRequestException;
 import at.ameisenbert.webshop.Exceptions.NotFoundException;
@@ -35,6 +36,13 @@ public class CartService {
         Optional<CartDB> cart = cartRepository.findById(id);
         if(cart.isPresent()) return cart.get();
         else throw new NotFoundException("Cart with the id " + id + " was not found.");
+    }
+
+    private CartDB getCartByUserId(int id) {
+        Optional<CartDB> cart = cartRepository.findAll().stream()
+                .filter(x -> x.getUserID()==id).findFirst();
+        if(cart.isPresent()) return cart.get();
+        else throw new NotFoundException("Cart with the UserId " + id + " was not found.");
     }
 
     private CartResource cartToCartResource(CartDB cart) { return new CartResource(cart.getCartID(), cart.getUserID(), cart.getProductIDs());  }
@@ -87,4 +95,29 @@ public class CartService {
         if(optionalCartResource.isPresent()) return optionalCartResource.get();
         else throw new NotFoundException("Cart with the id " + id + " was not found.");
     }
+
+
+
+    public CartResource addProduct(int id, int idProduct) {
+        CartDB cart = getCartByUserId(id);
+        ArrayList<Integer> productIDs = cart.getProductIDs();
+        productIDs.add(idProduct);
+        cartRepository.save(cart);
+        return cartToCartResource(cart);
+    }
+
+    public CartResource deleteProductFromCart(int id, int idProduct) {
+        CartDB cart = getCartByUserId(id);
+        ArrayList<Integer> productIDs = cart.getProductIDs();
+        for (int i = 0; i < productIDs.size(); i++) {
+            if (productIDs.get(i)==idProduct) {
+                productIDs.remove(i);
+                break;
+            }
+        }
+        cartRepository.save(cart);
+        return cartToCartResource(cart);
+    }
+
+
 }

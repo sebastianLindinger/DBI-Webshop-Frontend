@@ -22,6 +22,8 @@ export class ApiService {
       {
         'Content-Type': 'application/json' as const
     });
+    console.log(`${this.ROOT_URL}/${url}`)
+    console.log(payload)
     return this.http.put(`${this.ROOT_URL}/${url}`, payload, {headers: headers});
   }
 
