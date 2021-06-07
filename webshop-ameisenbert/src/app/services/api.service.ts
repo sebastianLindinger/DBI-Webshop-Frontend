@@ -10,7 +10,7 @@ export class ApiService {
   readonly ROOT_URL;
 
   constructor(private http:HttpClient) {
-    this.ROOT_URL = 'http://localhost:8080/ameisenbert.shop/'
+    this.ROOT_URL = 'http://localhost:8080/ameisenbert.shop'
   }
 
   get(url: string){
@@ -30,10 +30,13 @@ export class ApiService {
       {
         'Content-Type': 'application/json' as const
     });
+    console.log(`${this.ROOT_URL}/${url}`)
+    console.log(payload)
     return this.http.post(`${this.ROOT_URL}/${url}`, payload, {headers: headers});
   }
 
   delete(url: string){
+    console.log('delete method '+`${this.ROOT_URL}/${url}`);
     return this.http.delete(`${this.ROOT_URL}/${url}`);
   }
 }

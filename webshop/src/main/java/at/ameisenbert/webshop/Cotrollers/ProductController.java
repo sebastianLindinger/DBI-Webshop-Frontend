@@ -1,7 +1,7 @@
 package at.ameisenbert.webshop.Cotrollers;
 
 
-import at.ameisenbert.webshop.Entities.*;
+
 import at.ameisenbert.webshop.Entities.DTO.ProductDTO;
 import at.ameisenbert.webshop.Entities.Resource.ProductResource;
 import at.ameisenbert.webshop.Services.ProductService;
@@ -36,6 +36,7 @@ public class ProductController {
 
     @PostMapping
     public ProductResource addProduct(@RequestBody ProductDTO productDTO) {
+        System.out.println(productDTO);
         return productService.addProduct(productDTO);
     }
 

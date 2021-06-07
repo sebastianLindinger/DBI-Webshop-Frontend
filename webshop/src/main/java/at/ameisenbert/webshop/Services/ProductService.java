@@ -26,9 +26,9 @@ public class ProductService {
 
     //@PostConstruct
     public void initProducts() {
-        ProductDB p = new ProductDB(1, "delfin", 15.00, 42.00);
+        ProductDB p = new ProductDB(1, "delfin", 15.00, 42.00, "assets/images/delfin.jpg");
         productRepository.save(p);
-        ProductDB p2 = new ProductDB(2, "fisch", 69.69, 69.00);
+        ProductDB p2 = new ProductDB(2, "fisch", 69.69, 69.00, "assets/images/fisch.jpg");
         productRepository.save(p2);
     }
 
@@ -54,7 +54,7 @@ public class ProductService {
 
     public ProductResource addProduct(ProductDTO productDTO) {
         checkProductDTO(productDTO);
-        ProductDB product = new ProductDB(null, productDTO.getName(), productDTO.getWeight(), productDTO.getPrice());
+        ProductDB product = new ProductDB(null, productDTO.getName(), productDTO.getWeight(), productDTO.getPrice(), productDTO.getImage());
         product = productRepository.save(product);
         return productToProductResource(product);
     }

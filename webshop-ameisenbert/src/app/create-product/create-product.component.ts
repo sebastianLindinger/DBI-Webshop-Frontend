@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm, Validators } from '@angular/forms';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-create-product',
@@ -19,13 +20,27 @@ export class CreateProductComponent implements OnInit {
     Validators.required,
   ]);
 
+  name: string = '';
+  weight: number = 0;
+  price: number = 0;
+  image: string = '';
+
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm) {
-    console.log('create product clicked')
+  createProduct(payload: Object) {
+    console.log(Object);
+    console.log('Data is created - Result - Du muast de methode in onSubmit mochn so wie bei login', );
   }
 
-  constructor() { }
+  onSubmit(f: NgForm) {
+    console.log('create product clicked');
+    console.log(this.name+' '+this.weight+' '+this.price+' '+this.image);
+    this.apiService.post("products", {price: this.price, weight: this.weight, name:this.name, image:this.image}).subscribe(data => {
+      console.log(data)
+    });
+  }
+
+  constructor(private apiService: ApiService) { }
 
 }
