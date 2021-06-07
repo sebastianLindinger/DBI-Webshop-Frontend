@@ -20,7 +20,8 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteProduct(id: string) {
+    onSubmit() {
+      var id = String(this.product?.productID);
       console.log(id);
       console.log('Data is deleted - Result - ', this.apiService.delete(id));
     }

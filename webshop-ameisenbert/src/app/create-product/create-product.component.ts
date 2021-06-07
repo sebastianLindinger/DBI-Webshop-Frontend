@@ -20,6 +20,11 @@ export class CreateProductComponent implements OnInit {
     Validators.required,
   ]);
 
+  name: string = '';
+  weight: number = 0;
+  price: number = 0;
+  image: string = '';
+
   ngOnInit(): void {
   }
 
@@ -30,7 +35,8 @@ export class CreateProductComponent implements OnInit {
 
   onSubmit(f: NgForm) {
     console.log('create product clicked');
-    this.apiService.post("/products", {})
+    console.log(this.name+' '+this.weight+' '+this.price+' '+this.image);
+    this.apiService.post("products", {price: this.price, weight: this.weight, name:this.name, image:this.image});
   }
 
   constructor(private apiService: ApiService) { }
