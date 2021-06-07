@@ -56,4 +56,9 @@ public class CartController {
     public CartResource deleteCart(@PathVariable int id) {
         return cartService.deleteCart(id);
     }
+
+    @PutMapping(value = "deleteFromCart/{id}")
+    public CartResource deleteFromCart(@PathVariable int id, @RequestBody int idProduct) {
+        return cartService.deleteProductFromCart(id, idProduct);
+    }
 }

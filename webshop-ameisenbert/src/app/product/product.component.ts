@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from './product';
 import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-product',
@@ -8,7 +10,7 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  
+
 
   @Input()
   product: Product | undefined;
@@ -16,24 +18,30 @@ export class ProductComponent implements OnInit {
   canAddToCart: boolean = false;
   @Input()
   canRemoveFromCart: boolean = false;
+  components = [];
+
 
   ngOnInit(): void {
   }
 
-    onSubmit() {
-      var id = String(this.product?.productID);
-      console.log(id);
-      console.log('Data is deleted - Result - ', this.apiService.delete(id));
-    }
+  deleteFromCart() {
+    var id = String(this.product?.productID);
+    console.log(id);
+    console.log('Data is deleted - Result - ');
+    this.apiService.put('carts/deleteFromCart/' + localStorage.getItem('userID'), id).subscribe(data => {
+      console.log(data)
+      //window.location.reload();
+    });
+  }
 
-    putInCart() {
-      var id = String(this.product?.productID);
-      this.apiService.put("carts/addToCart/"+localStorage.getItem('userID'), id).subscribe(data => {
-        console.log(data);
-      });
-    }
-  
+  putInCart() {
+    var id = String(this.product?.productID);
+    this.apiService.put("carts/addToCart/" + localStorage.getItem('userID'), id).subscribe(data => {
+      console.log(data);
+    });
+  }
 
-  constructor(private apiService: ApiService) { }
+
+  constructor(private apiService: ApiService, private router: Router) { }
 
 }

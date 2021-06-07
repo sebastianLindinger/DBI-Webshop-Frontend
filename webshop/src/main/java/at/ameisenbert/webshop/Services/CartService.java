@@ -38,6 +38,13 @@ public class CartService {
         else throw new NotFoundException("Cart with the id " + id + " was not found.");
     }
 
+    private CartDB getCartByUserId(int id) {
+        Optional<CartDB> cart = cartRepository.findAll().stream()
+                .filter(x -> x.getUserID()==id).findFirst();
+        if(cart.isPresent()) return cart.get();
+        else throw new NotFoundException("Cart with the UserId " + id + " was not found.");
+    }
+
     private CartResource cartToCartResource(CartDB cart) { return new CartResource(cart.getCartID(), cart.getUserID(), cart.getProductIDs());  }
 
     public List<CartResource> getCartResources() {
@@ -89,11 +96,28 @@ public class CartService {
         else throw new NotFoundException("Cart with the id " + id + " was not found.");
     }
 
+
+
     public CartResource addProduct(int id, int idProduct) {
-        CartDB cart = getCartById(id);
+        CartDB cart = getCartByUserId(id);
         ArrayList<Integer> productIDs = cart.getProductIDs();
         productIDs.add(idProduct);
         cartRepository.save(cart);
         return cartToCartResource(cart);
     }
+
+    public CartResource deleteProductFromCart(int id, int idProduct) {
+        CartDB cart = getCartByUserId(id);
+        ArrayList<Integer> productIDs = cart.getProductIDs();
+        for (int i = 0; i < productIDs.size(); i++) {
+            if (productIDs.get(i)==idProduct) {
+                productIDs.remove(i);
+                break;
+            }
+        }
+        cartRepository.save(cart);
+        return cartToCartResource(cart);
+    }
+
+
 }
