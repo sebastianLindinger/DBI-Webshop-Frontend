@@ -1,1 +1,38 @@
-<p>register works!</p>
+<form mat-form #f="ngForm" class="example-form" (ngSubmit)="onSubmit()">
+    <h1>Register</h1>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Benutzername</mat-label>
+        <input type="text" matInput [formControl]="textFormControl" [(ngModel)]="username" placeholder="PGP420" ngModel
+            required name="username">
+        <mat-error *ngIf="textFormControl.hasError('required')">
+            Benutzername ist <strong>erforderlich</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Passwort</mat-label>
+        <input type="password" matInput [formControl]="passwordFormControl" ngModel required name="password"
+            [(ngModel)]="password">
+        <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Passwort ist <strong>erforderlich</strong>
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+            Passwort muss <strong>mindestens 6 Zeichen</strong> haben
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" ngModel required name="email"
+            [(ngModel)]="email">
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email ist <strong>erforderlich</strong>
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('email')">
+            Keine <strong>gültige</strong> Email
+        </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Register!</button>
+</form>

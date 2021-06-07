@@ -1,0 +1,19 @@
+
+.example-form {
+    min-width: 150px;
+    position: relative;
+    width: 90%;
+    top: 20px;
+    left: 5%;
+    text-align: center;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+.example-full-width {
+   max-width: 500px;
+   width: 100%;
+   margin: 7px;
+ }
