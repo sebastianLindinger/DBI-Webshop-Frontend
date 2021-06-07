@@ -25,6 +25,13 @@ export class ProductComponent implements OnInit {
       console.log(id);
       console.log('Data is deleted - Result - ', this.apiService.delete(id));
     }
+
+    putInCart() {
+      var id = String(this.product?.productID);
+      this.apiService.put("carts/addToCart/"+localStorage.getItem('userID'), id).subscribe(data => {
+        console.log(data);
+      });
+    }
   
 
   constructor(private apiService: ApiService) { }

@@ -28,11 +28,6 @@ export class CreateProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createProduct(payload: Object) {
-    console.log(Object);
-    console.log('Data is created - Result - Du muast de methode in onSubmit mochn so wie bei login', );
-  }
-
   onSubmit(f: NgForm) {
     console.log('create product clicked');
     console.log(this.name+' '+this.weight+' '+this.price+' '+this.image);

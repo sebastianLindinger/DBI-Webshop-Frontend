@@ -2,6 +2,7 @@ package at.ameisenbert.webshop.Cotrollers;
 
 
 import at.ameisenbert.webshop.Entities.DTO.CartDTO;
+import at.ameisenbert.webshop.Entities.DTO.ProductDTO;
 import at.ameisenbert.webshop.Entities.Resource.CartResource;
 import at.ameisenbert.webshop.Services.CartService;
 import org.springframework.http.HttpStatus;
@@ -44,6 +45,11 @@ public class CartController {
     @PutMapping(value = "/{id}")
     public CartResource updateCart(@PathVariable int id, @RequestBody CartDTO cartDTO) {
         return cartService.updateCart(id, cartDTO);
+    }
+
+    @PutMapping(value = "addToCart/{id}")
+    public CartResource addProduct(@PathVariable int id, @RequestBody int idProduct) {
+        return cartService.addProduct(id, idProduct);
     }
 
     @DeleteMapping(value = "/{id}")

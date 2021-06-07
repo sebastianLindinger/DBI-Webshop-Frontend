@@ -2,6 +2,7 @@ package at.ameisenbert.webshop.Services;
 
 import at.ameisenbert.webshop.Entities.DB.CartDB;
 import at.ameisenbert.webshop.Entities.DTO.CartDTO;
+import at.ameisenbert.webshop.Entities.DTO.ProductDTO;
 import at.ameisenbert.webshop.Entities.Resource.CartResource;
 import at.ameisenbert.webshop.Exceptions.BadRequestException;
 import at.ameisenbert.webshop.Exceptions.NotFoundException;
@@ -86,5 +87,13 @@ public class CartService {
 
         if(optionalCartResource.isPresent()) return optionalCartResource.get();
         else throw new NotFoundException("Cart with the id " + id + " was not found.");
+    }
+
+    public CartResource addProduct(int id, int idProduct) {
+        CartDB cart = getCartById(id);
+        ArrayList<Integer> productIDs = cart.getProductIDs();
+        productIDs.add(idProduct);
+        cartRepository.save(cart);
+        return cartToCartResource(cart);
     }
 }
