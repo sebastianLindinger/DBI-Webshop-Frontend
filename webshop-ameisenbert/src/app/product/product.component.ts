@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from './product';
 import { ApiService } from '../services/api.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +17,7 @@ export class ProductComponent implements OnInit {
   canAddToCart: boolean = false;
   @Input()
   canRemoveFromCart: boolean = false;
-  components = [];
+
 
 
   ngOnInit(): void {
@@ -30,7 +29,7 @@ export class ProductComponent implements OnInit {
     console.log('Data is deleted - Result - ');
     this.apiService.put('carts/deleteFromCart/' + localStorage.getItem('userID'), id).subscribe(data => {
       console.log(data)
-      //window.location.reload();
+      window.location.reload();
     });
   }
 
@@ -42,6 +41,6 @@ export class ProductComponent implements OnInit {
   }
 
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService) { }
 
 }
