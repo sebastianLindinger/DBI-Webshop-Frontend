@@ -30,4 +30,14 @@ export class HttpClientService {
   orders() {
     return this.apiService.get('orders');
   }
+
+  register(model: any) {
+    console.log(model)
+    return this.apiService.post('users', model);
+  }
+
+  createCartForUser(userID: any) {
+    console.log(userID);
+    return this.apiService.post('carts', { userID: userID, productIDs: [] })
+  }
 }
