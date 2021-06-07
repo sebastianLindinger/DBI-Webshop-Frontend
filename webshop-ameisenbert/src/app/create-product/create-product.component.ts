@@ -36,7 +36,9 @@ export class CreateProductComponent implements OnInit {
   onSubmit(f: NgForm) {
     console.log('create product clicked');
     console.log(this.name+' '+this.weight+' '+this.price+' '+this.image);
-    this.apiService.post("products", {price: this.price, weight: this.weight, name:this.name, image:this.image});
+    this.apiService.post("products", {price: this.price, weight: this.weight, name:this.name, image:this.image}).subscribe(data => {
+      console.log(data)
+    });
   }
 
   constructor(private apiService: ApiService) { }

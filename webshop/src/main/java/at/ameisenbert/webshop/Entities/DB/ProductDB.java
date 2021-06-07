@@ -24,11 +24,12 @@ public class ProductDB {
 
     private String image;
 
-    public ProductDB(Integer productID, String name, Double weight, Double price) {
+    public ProductDB(Integer productID, String name, Double weight, Double price, String image) {
         this.productID = productID;
         this.name = name;
         this.weight = weight;
         this.price = price;
+        this.image = image;
     }
 
     /*@ManyToMany(cascade = CascadeType.ALL, mappedBy = "productDB")
