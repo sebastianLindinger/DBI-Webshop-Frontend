@@ -27,6 +27,11 @@ public class OrderController {
         return service.getOrderResourceById(id);
     }
 
+    @GetMapping(value = "ofUser/{id}")
+    public List<OrderResource> getOrdersOfUser(@PathVariable int id) {
+        return service.getOrdersOfUser(id);
+    }
+
     @PostMapping
     public OrderResource addOrder(@RequestBody OrderDTO order) {
         return service.addOrder(order);

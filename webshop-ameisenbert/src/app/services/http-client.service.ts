@@ -7,6 +7,7 @@ import { Product } from '../product/product';
   providedIn: 'root'
 })
 export class HttpClientService {
+ 
   constructor(private http: HttpClient, private apiService: ApiService) { }
 
   products() {
@@ -27,8 +28,16 @@ export class HttpClientService {
     return this.apiService.get('carts/byUser/' + userID);
   }
 
-  orders() {
-    return this.apiService.get('orders');
+  orders(userID: string | null) {
+    return this.apiService.get('orders/ofUser/' + userID);
+  }
+
+  resetCart(userID: any) {
+    return this.apiService.put('carts/resetCart/' + userID, {});
+  }
+
+  order(model: any) {
+    return this.apiService.post('orders', model);
   }
 
   register(model: any) {

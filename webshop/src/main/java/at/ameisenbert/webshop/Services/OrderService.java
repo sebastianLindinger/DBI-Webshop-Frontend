@@ -8,7 +8,6 @@ import at.ameisenbert.webshop.Exceptions.NotFoundException;
 import at.ameisenbert.webshop.Repositories.OrderRepository;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -86,5 +85,9 @@ public class OrderService {
 
         orderRepository.delete(order);
         return orderToOrderResource(order);
+    }
+
+    public List<OrderResource> getOrdersOfUser(int id) {
+        return getOrderResources().stream().filter(x -> x.getUserID() == id).collect(Collectors.toList());
     }
 }

@@ -61,4 +61,9 @@ public class CartController {
     public CartResource deleteFromCart(@PathVariable int id, @RequestBody int idProduct) {
         return cartService.deleteProductFromCart(id, idProduct);
     }
+
+    @PutMapping(value = "resetCart/{id}")
+    public CartResource resetCart(@PathVariable int id) {
+        return cartService.resetCart(id);
+    }
 }

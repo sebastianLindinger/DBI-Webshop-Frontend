@@ -15,6 +15,7 @@
                 </div>
             </mat-drawer-content>
         </mat-drawer-container>
-        <hr>
+
+        <button *ngIf="products.length > 0" mat-raised-button color="primary" (click)="order()">Bestellen</button>
     </article>
 </ng-template>

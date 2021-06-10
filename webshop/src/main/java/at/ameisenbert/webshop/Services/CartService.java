@@ -120,4 +120,17 @@ public class CartService {
     }
 
 
+    public CartResource resetCart(int id) {
+        Optional<CartDB> optionalCartDB =  cartRepository.findAll().stream()
+                .filter(cart -> cart.getUserID() == id)
+                .findFirst();
+
+        if(optionalCartDB.isPresent())  {
+            CartDB cart = optionalCartDB.get();
+            cart.setProductIDs(new ArrayList<>());
+            cartRepository.save(cart);
+            return cartToCartResource(cart);
+        }
+        else throw new NotFoundException("Cart with the id " + id + " was not found.");
+    }
 }
