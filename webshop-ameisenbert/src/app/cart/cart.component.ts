@@ -11,7 +11,7 @@ import { Product } from '../product/product';
 })
 export class CartComponent implements OnInit {
   constructor(private httpservice: HttpClientService) { }
-  
+
   cart: Cart | undefined;
   userID!: string | null;
   products: Product[] = [];
@@ -25,4 +25,21 @@ export class CartComponent implements OnInit {
       });;
   }
 
+  order() {
+    let model = {
+      userID: this.userID,
+      productIDs: this.products.map(x => x.productID)
+    };
+
+    console.log(model)
+
+    
+    this.httpservice.order(model).subscribe((res) => {
+      console.log(res);
+      this.products = [];
+      this.httpservice.resetCart(this.userID).subscribe((res) => {
+        console.log(res);
+      })
+    });
+  }
 }

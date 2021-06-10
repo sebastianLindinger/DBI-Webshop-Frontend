@@ -12,13 +12,16 @@ export class OrdersComponent implements OnInit {
 
   constructor(private httpservice: HttpClientService) { }
 
+  userID!: string | null;
+
   ngOnInit(): void {
-    this.getAllOrders();
+    this.userID = localStorage.getItem('userID');
+    if (this.userID !== '-1' && this.userID) this.getAllOrders();
   }
 
   getAllOrders() {
     this.httpservice
-      .orders()
+      .orders(this.userID)
       .subscribe((res) => {
         this.orders = <Order[]>(<unknown>res);
       });

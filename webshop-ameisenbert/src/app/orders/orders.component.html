@@ -1,10 +1,15 @@
-<article>
-    <mat-drawer-container class="example-container">
-        <mat-drawer-content>
-            <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column"
-                fxLayoutAlign="space-evenly left">
-                <app-order *ngFor="let order of orders" [order]=order></app-order>
-            </div>
-        </mat-drawer-content>
-    </mat-drawer-container>
-</article>
+<h1 *ngIf="!orders; else userLoggedIn">Bitte loggen Sie sich ein um Ihre Bestellungen zu sehen.</h1>
+
+<ng-template #userLoggedIn>
+    <h1 *ngIf="orders.length == 0">Leider haben Sie noch nichts bestellt.</h1>
+    <article>
+        <mat-drawer-container class="example-container">
+            <mat-drawer-content>
+                <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column"
+                    fxLayoutAlign="space-evenly left">
+                    <app-order *ngFor="let order of orders" [order]=order></app-order>
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    </article>
+</ng-template>
