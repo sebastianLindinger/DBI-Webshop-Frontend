@@ -1,8 +1,13 @@
 .example-card {
   max-width: 320px;
   margin: 0px 5px 5px 0px;
+  height: 455px;
 }
 
 .example-header-image {
   background-size: cover;
+}
+
+.mat-card-actons {
+  display: inline;
 }

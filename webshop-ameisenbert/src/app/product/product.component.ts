@@ -17,6 +17,8 @@ export class ProductComponent implements OnInit {
   canAddToCart: boolean = false;
   @Input()
   canRemoveFromCart: boolean = false;
+  @Input()
+  canRemoveFromDb: boolean = false;
 
 
 
@@ -31,6 +33,17 @@ export class ProductComponent implements OnInit {
       console.log(data)
       window.location.reload();
     });
+  }
+
+
+  deleteFromDb() {
+    var id = String(this.product?.productID);
+    console.log(id);
+    console.log('Data is deleted - Result - ');
+    this.apiService.delete('products/'+id).subscribe(data => {
+      console.log(data);
+      window.location.reload();
+    })
   }
 
   putInCart() {

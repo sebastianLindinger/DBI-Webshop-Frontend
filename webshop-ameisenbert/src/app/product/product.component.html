@@ -14,7 +14,8 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="putInCart()" *ngIf="canAddToCart" mat-raised-button color="primary">In den Warenkorb legen</button>
+      <button (click)="putInCart()" style="float: left" *ngIf="canAddToCart" mat-raised-button color="primary">In Warenkorb</button>
+      <button (click)="deleteFromDb()" type="submit" style="float: right" *ngIf="canRemoveFromDb" mat-raised-button color="accent">Produkt entfernen</button>
       <button (click)="deleteFromCart()" type="submit" *ngIf="canRemoveFromCart" mat-raised-button color="warn">Aus dem Warenkorb entfernen</button>
     </mat-card-actions>
   </mat-card>
